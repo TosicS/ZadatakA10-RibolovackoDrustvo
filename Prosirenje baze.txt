@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[Oprema] (
+    [OpremaID] INT          NOT NULL,
+    [Vrsta]    VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([OpremaID] ASC)
+);
+ 
+ALTER TABLE [dbo].[Ulov]
+    ADD [OpremaID] INT NOT NULL, 
+    CONSTRAINT [FK_Ulov_ToOprema] FOREIGN KEY ([OpremaID]) REFERENCES [Oprema]([OpremaID]);
